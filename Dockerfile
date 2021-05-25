@@ -25,16 +25,13 @@ RUN sudo chown -R coder:coder /home/coder/.local
 # Install a VS Code extension:
 # Note: we use a different marketplace than VS Code. See https://github.com/cdr/code-server/blob/main/docs/FAQ.md#differences-compared-to-vs-code
 
+RUN sudo apt-get install -y wget
+
 # Dowload C++ tools insiders extension
-RUN curl https://github.com/microsoft/vscode-cpptools/releases/download/1.4.0-insiders2/cpptools-linux.vsix --output cpptools-linux.vsix
+RUN wget https://github.com/microsoft/vscode-cpptools/releases/download/1.4.0-insiders2/cpptools-linux.vsix
+RUN ls
 # Install the extension
 RUN code-server --install-extension ./cpptools-linux.vsix
-
-# Install apt packages:
-# RUN sudo apt-get install -y ubuntu-make
-
-# Copy files: 
-# COPY deploy-container/myTool /home/coder/myTool
 
 # -----------
 
