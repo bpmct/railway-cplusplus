@@ -27,6 +27,7 @@ RUN sudo chown -R coder:coder /home/coder/.local
 
 # Dowload C++ tools insiders
 RUN wget https://github.com/microsoft/vscode-cpptools/releases/download/1.4.0-insiders2/cpptools-linux.vsix
+RUN ls
 RUN code-server --install-extension ./cpptools-linux.vsix
 
 # Install apt packages:
